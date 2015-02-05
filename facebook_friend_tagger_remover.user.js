@@ -29,10 +29,10 @@ function ready(fn) {
 }
 
 ready(function() {
-    var me = document.querySelector("a[title=Profile]").pathname;
-
     var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
+        mutations.forEach(function (mutation) {
+            var me = document.querySelector("a[title=Profile]").pathname;
+
             var comment = mutation.target.querySelectorAll(".UFIComment");
 
             for (var i = 0; i < comment.length; i++) {
@@ -53,7 +53,7 @@ ready(function() {
                 }
 
                 if (profileLink && !containsMe) {
-                    current.parentElement.removeChild(current);
+                    comment[i].remove();
                 }
             }
         });
